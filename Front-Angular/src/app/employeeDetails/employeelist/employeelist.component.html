@@ -1,0 +1,35 @@
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+            <div class="text-right" style="margin-top: 50px;"><button class="btn btn-info" routerLink="/add">Add Employee</button></div>
+        <div id="theList">
+            <h4>Employee list</h4>
+<table class="table">
+        <thead class="thead-light">
+    <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Role</th>
+        <th scope="col">Action</th>
+    </tr>
+</thead>
+<tbody>
+    <tr *ngFor="let employee of employeeList; let i = index" >
+        <td>{{employee.name}}</td>
+        <td>{{employee.email}}</td>
+        <td>{{employee.phone}}</td>
+        <td>{{employee.role}}</td>
+        <td>
+        <button type="button" style="margin-right:15px;" class="btn btn-outline-secondary" (click)="update(employee.id)">Update</button>
+        <button type="button" class="btn btn-outline-danger" (click)="delete(employee.id)">Delete</button>
+        </td>
+    </tr>
+</tbody>
+</table>
+          </div>
+          <div *ngIf="deleteShow" class="alert alert-danger" role="alert">
+                {{ alertDelete }}
+              </div>
+    </div>
+</div>
